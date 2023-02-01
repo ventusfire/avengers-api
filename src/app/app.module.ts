@@ -11,6 +11,9 @@ import { AvengerDetailComponent } from './components/avenger-detail/avenger-deta
 import { PaginationPipe } from './pipes/pagination.pipe';
 import { AvengersListComponent } from './components/avengers-list/avengers-list.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { LayoutComponent } from './layout/layout/layout.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ComicsComponent } from './components/comics/comics.component';
 
 @NgModule({
   declarations: [
@@ -21,12 +24,15 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     AvengerDetailComponent,
     PaginationPipe,
     AvengersListComponent,
+    LayoutComponent,
+    ComicsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

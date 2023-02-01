@@ -1,57 +1,64 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { ActivatedRoute, Router, } from '@angular/router';
 import { AvengersAPIService } from 'src/app/services/avengers-api.service';
 
 @Component({
   selector: 'app-avenger-detail',
   templateUrl: './avenger-detail.component.html',
-  styleUrls: ['./avenger-detail.component.less']
+  styleUrls: ['./avenger-detail.component.less'],
 })
 export class AvengerDetailComponent implements OnInit {
+  idAvenger: any;
+  avenger: any;
+  team = 'team';
+  currentTeam: any;
 
-  idAvenger:any;
-  avenger:any;
-  comics:any;
 
   constructor(
-    private avengersAPIServiceh:AvengersAPIService,
-    private activatedRoute:ActivatedRoute
-  ) { }
+    private avengersAPIServiceh: AvengersAPIService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.getAvengerId()
-   // this.getComics()
+    this.getAvengerId();
   }
 
-  getComics(){
-    this.comics = this.avengersAPIServiceh.getComics(this.idAvenger)
-  }
-
-  getAvengerId(){
-    this.activatedRoute.params.subscribe( data =>
-      this.idAvenger = data['id']
+  getAvengerId() {
+    this.activatedRoute.params.subscribe(
+      (data) => (this.idAvenger = data['id'])
     );
-    console.log(this.idAvenger)
-    parseInt(this.idAvenger)
-    this.avengersAPIServiceh.getAvengerDetail(this.idAvenger).subscribe(
-      (data) => {
-        this.avenger={
-          name:data[0].name,
-          description:data[0].description,
-          path:data[0].thumbnail.path,
-          extension:data[0].thumbnail.extension,
-          urls:data[0].urls[0].url,
-          comic:data[0].comics.items[0],
-          comicName:data[0].comics.items[1]
-
+    parseInt(this.idAvenger);
+    this.avengersAPIServiceh
+      .getAvengerDetail(this.idAvenger)
+      .subscribe((data) => {
+        this.avenger = {
+          name: data[0].name,
+          description: data[0].description,
+          path: data[0].thumbnail.path,
+          extension: data[0].thumbnail.extension
         };
         if (this.avenger.description) {
-          this.avenger.description
+          this.avenger.description;
         } else {
-          this.avenger.description = 'Sin informacion'
+          this.avenger.description = 'Sin informacion';
         }
-      }
-    )
+      });
+  }
+
+  addAvenger() {
+    const data = localStorage.getItem(this.team) as string;
+    this.currentTeam = JSON.parse(data) as string[];
+    const image = `${this.avenger.path}.${this.avenger.extension}`;
+    if (this.currentTeam === null) {
+       this.currentTeam = [image]
+       localStorage.setItem(this.team, JSON.stringify(this.currentTeam));
+     } else {
+      this.currentTeam.push(image)
+       this.avenger = localStorage.setItem(this.team, JSON.stringify(this.currentTeam));
+     }
+     this.router.navigateByUrl('')
   }
 
 }
+

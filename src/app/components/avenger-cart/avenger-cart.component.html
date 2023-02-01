@@ -1,6 +1,6 @@
 <div class="row"
 infiniteScroll
-[infiniteScrollDistance]="0.1"
+[infiniteScrollDistance]="0.3"
 (scrolled)="infiniteScroll()">
   <div *ngFor="let avenger of avengers"
   class="card c"
@@ -8,7 +8,7 @@ infiniteScroll
     <img src="{{avenger.thumbnail.path}}.{{avenger.thumbnail.extension}}" class="card-img-top i" alt="...">
     <div class="card-body">
       <h5 class="card-title">{{ avenger.name }}</h5>
-      <a (click)="avengerDtl(avenger.id)" class="btn btn-danger">detalles</a>
+      <a (click)="avengerDtl(avenger.id)" class="btn btn-info">detalles</a>
     </div>
   </div>
 </div>

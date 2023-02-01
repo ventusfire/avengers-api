@@ -35,8 +35,9 @@ export class AvengersAPIService {
   }
 
   getComics(id: number){
-    return this.http.get(`${environment.url_api}/characters/${id}/comics?ts=1&apikey=${environment.public_Key}&hash=${environment.hash}`).pipe(map((data:any) =>
-    data.data.results))
+    return this.http.get(`${environment.url_api}/characters/${id}/comics?ts=1&apikey=${environment.public_Key}&hash=${environment.hash}`).pipe(
+      map((data:any) => data.data.results)
+    );
   }
 
   public findAvengerStartWith(startWith: string){
