@@ -1,0 +1,17 @@
+
+<br>
+<div class="input">
+  <input type="text" class="form-control" placeholder="Team Name">
+<input type="text" class="form-control" placeholder="Team Description">
+<button class="btn btn-primary" (click)="saveTeam(name, description)">Save Team</button>
+</div>
+
+<div class="row cont" >
+  <div class="card hero" style="width: 12rem;" *ngFor="let team of teams">
+    <img class="card-img-top" src="{{team}}">
+  <div class="card-body">
+    <button class="btn btn-danger" (click)="deleteHero(team)">Delete Hero</button>
+  </div>
+  </div>
+</div>
+

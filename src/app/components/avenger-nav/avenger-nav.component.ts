@@ -2,6 +2,7 @@ import { AfterViewInit, Component, ElementRef, ViewChild, OnInit } from '@angula
 import { Subscription, debounceTime, distinctUntilChanged, fromEvent, map, startWith } from 'rxjs';
 import { SearchAvengerServiceService } from 'src/app/services/search-avenger-service.service';
 
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-avenger-nav',
   templateUrl: './avenger-nav.component.html',
@@ -17,9 +18,11 @@ export class AvengerNavComponent implements AfterViewInit, OnInit  {
   avengers = []
   searchAvengerTxt = ''
   displaySearch = true;
+  none?:boolean;
 
   constructor(
-    private searchAvengerServiceService:SearchAvengerServiceService
+    private searchAvengerServiceService:SearchAvengerServiceService,
+    private router: Router
   ) { }
   ngOnInit() {
     this.searchAvengerServiceService.avengerObservable.subscribe()
@@ -33,17 +36,15 @@ export class AvengerNavComponent implements AfterViewInit, OnInit  {
     ).subscribe( data => this.searchAvengerServiceService.emitAvenger(data))
   }
 
+  noneEvent(){
+    if(this.router.url.includes('management')){
+      this.none = false;
+      console.log(this.none)
+    }
+  }
+
   ngOnDestroy(){
 
   }
-
-
-
-
-  /*searchAvenger(){
-    this.filteredAvenger = this.avengers.filter((avenger) =>
-      avenger.name.toLowerCase().includes(this.searchAvengerTxt.toLocaleLowerCase);
-    )
-  }*/
 
 }

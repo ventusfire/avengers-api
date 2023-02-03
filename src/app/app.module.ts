@@ -8,12 +8,12 @@ import { AvengerCartComponent } from './components/avenger-cart/avenger-cart.com
 import { AvengerNavComponent } from './components/avenger-nav/avenger-nav.component';
 import { YouAvengersTeamComponent } from './components/you-avengers-team/you-avengers-team.component';
 import { AvengerDetailComponent } from './components/avenger-detail/avenger-detail.component';
-import { PaginationPipe } from './pipes/pagination.pipe';
 import { AvengersListComponent } from './components/avengers-list/avengers-list.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { LayoutComponent } from './layout/layout/layout.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ComicsComponent } from './components/comics/comics.component';
+import { TeamManagementComponent } from './components/team-management/team-management.component';
 
 @NgModule({
   declarations: [
@@ -22,17 +22,17 @@ import { ComicsComponent } from './components/comics/comics.component';
     AvengerNavComponent,
     YouAvengersTeamComponent,
     AvengerDetailComponent,
-    PaginationPipe,
     AvengersListComponent,
     LayoutComponent,
     ComicsComponent,
+    TeamManagementComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     InfiniteScrollModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

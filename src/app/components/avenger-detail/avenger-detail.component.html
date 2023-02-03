@@ -1,11 +1,14 @@
   <div class="container">
-    <div class="card">
-      <img src="{{avenger.path}}.{{avenger.extension}}" class="card-img-top img_hero" alt="{{ avenger.name }}">
-      <app-comics></app-comics>
+      <div>
+        <img src="{{avenger.path}}.{{avenger.extension}}" class="img_hero" alt="{{ avenger.name }}">
       <div class="card-body">
-        <h5 class="card-title">{{ avenger.name }}</h5>
+        <h1 class="card-title">{{ avenger.name}}</h1>
         <p class="card-text">{{avenger.description}}</p>
         <a (click)="addAvenger()" class="btn btn-primary">Selec Hero</a>
       </div>
+      </div>
+    <div class="app-comic">
+      <h2>Algunos comics</h2>
+      <app-comics ></app-comics>
     </div>
   </div>

@@ -49,15 +49,21 @@ export class AvengerDetailComponent implements OnInit {
   addAvenger() {
     const data = localStorage.getItem(this.team) as string;
     this.currentTeam = JSON.parse(data) as string[];
+    let maxHero = JSON.stringify(this.currentTeam).length
     const image = `${this.avenger.path}.${this.avenger.extension}`;
-    if (this.currentTeam === null) {
-       this.currentTeam = [image]
-       localStorage.setItem(this.team, JSON.stringify(this.currentTeam));
-     } else {
-      this.currentTeam.push(image)
-       this.avenger = localStorage.setItem(this.team, JSON.stringify(this.currentTeam));
-     }
-     this.router.navigateByUrl('')
+    console.log(maxHero)
+    if(maxHero <= 384){
+      if (this.currentTeam === null) {
+        this.currentTeam = [image]
+        localStorage.setItem(this.team, JSON.stringify(this.currentTeam));
+      } else {
+       this.currentTeam.push(image)
+        this.avenger = localStorage.setItem(this.team, JSON.stringify(this.currentTeam));
+        location.reload()
+      }
+    }else{
+      alert('Tu equipo no puede tener mas de 6 Heroes')
+    }
   }
 
 }

@@ -1,6 +1,6 @@
-<footer class="fixed-bottom row team" >
-  <div class="col cart-group container_hero" *ngFor="let teamAvenger of teamAvengers">
+<section class="bottom team"  *ngIf="conditional > 0">
+  <div class="container_hero" *ngFor="let teamAvenger of teamAvengers">
     <button class="btn btn-danger btn_hero" (click)="deleteHero(teamAvenger)">Delete Hero</button>
     <img class="card-img-top img_hero" src="{{teamAvenger}}" alt="">
   </div>
-</footer>
+</section>

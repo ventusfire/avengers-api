@@ -1,0 +1,23 @@
+.button{
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 3;
+  padding: 1rem;
+  cursor: pointer;
+  font-size: 1.5rem;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &:hover{
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .button{
+    right: 10px;
+  }
+}

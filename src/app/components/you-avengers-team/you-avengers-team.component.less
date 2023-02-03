@@ -1,7 +1,8 @@
 .team{
-  height: 23%;
-  margin: 0 65px 0 65px;
-  width: center;
+  display: flex;
+  height: 21%;
+  //margin: 0 65px 0 65px;
+  width: auto;
   background-color: white;
   border: solid 1px;
   border-color: gray;
@@ -10,21 +11,38 @@
 }
 
 .container_hero{
-  width: 10%;
-  max-width: 10%;
+  flex-direction: row;
+}
+
+.bottom{
+  position: fixed;
+  bottom: 0;
+  z-index: 1030;
 }
 
 .img_hero{
-  height: 176px;
-  width: 166px;
+  height: 11rem;
+  width: 10.375rem;
   border-radius: 5px;
   border: solid 1px red;
   margin-top: 5px;
+  margin-right: 0.5rem;
 }
 
 .btn_hero{
   position: absolute;
-  width: 6%;
-  font-size: smaller;
+  font-size: 0.6rem;
   margin-top: 5px;
+}
+
+@media (max-width: 1170px) {
+  .team{
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .team{
+    display: none;
+  }
 }

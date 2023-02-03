@@ -39,6 +39,7 @@ export class SearchAvengerServiceService {
      return this.currentTeam;
   }
 
+
   delteLocalStrorageHero(position:number){
       for(let i = 0; i < this.currentTeam.length; i++){
         if(position == this.currentTeam[i]){

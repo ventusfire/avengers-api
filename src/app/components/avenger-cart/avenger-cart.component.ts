@@ -64,4 +64,6 @@ export class AvengerCartComponent implements OnInit {
       this.avengers = data
     });
   }
+
+
 }

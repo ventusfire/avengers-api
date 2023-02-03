@@ -1,7 +1,8 @@
 <div class="comic">
   <div class="" *ngFor="let comic of comics">
-    <h1>{{comic.title}}</h1>
+    <h1 class="title">{{comic.title}}</h1>
   <img class="img_comic" src="{{comic.thumbnail.path}}.{{comic.thumbnail.extension}}" alt="{{comic.name}}">
-  <p>{{comic.description}}</p>
+  <p class="description" *ngIf="comic.description">{{comic.description}}</p>
+  <p class="description" *ngIf="comic.description === ''">{{noDescription}}</p>
   </div>
 </div>

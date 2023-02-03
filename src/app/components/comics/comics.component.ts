@@ -12,6 +12,7 @@ export class ComicsComponent implements OnInit {
 
   comics: any;
   idAvenger: any;
+  noDescription ='NO DESCRIPTION'
 
   constructor(
     private avengersAPIServiceh: AvengersAPIService,

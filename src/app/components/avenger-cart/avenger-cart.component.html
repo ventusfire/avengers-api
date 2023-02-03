@@ -1,11 +1,6 @@
-<div class="row"
-infiniteScroll
-[infiniteScrollDistance]="0.3"
-(scrolled)="infiniteScroll()">
-  <div *ngFor="let avenger of avengers"
-  class="card c"
-  style="width: 12rem;">
-    <img src="{{avenger.thumbnail.path}}.{{avenger.thumbnail.extension}}" class="card-img-top i" alt="...">
+<div class="row cont" infiniteScroll [infiniteScrollDistance]="0.3" (scrolled)="infiniteScroll()">
+  <div *ngFor="let avenger of avengers" class="card hero" style="width: 12rem;">
+    <img src="{{avenger.thumbnail.path}}.{{avenger.thumbnail.extension}}" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">{{ avenger.name }}</h5>
       <a (click)="avengerDtl(avenger.id)" class="btn btn-info">detalles</a>

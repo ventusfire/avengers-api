@@ -1,3 +1,4 @@
 export interface Team {
-  image: string
+  name?: string
+  image?: string
 }

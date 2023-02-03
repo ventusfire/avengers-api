@@ -1,7 +1,6 @@
 import { Component, OnInit, } from '@angular/core';
 import { SearchAvengerServiceService } from 'src/app/services/search-avenger-service.service';
 
-
 @Component({
   selector: 'app-you-avengers-team',
   templateUrl: './you-avengers-team.component.html',
@@ -10,14 +9,16 @@ import { SearchAvengerServiceService } from 'src/app/services/search-avenger-ser
 export class YouAvengersTeamComponent implements OnInit {
 
   teamAvengers:any;
+  conditional = 0;
 
   constructor(
-    private searchAvengerServiceService: SearchAvengerServiceService
+    private searchAvengerServiceService: SearchAvengerServiceService,
+
   ) { }
 
   ngOnInit(): void {
     this.teamAvengers = this.searchAvengerServiceService.getTeam();
-    console.log(this.teamAvengers)
+    this.conditional = this.teamAvengers.length;
   }
 
   deleteHero(position:number){
@@ -25,5 +26,6 @@ export class YouAvengersTeamComponent implements OnInit {
       this.searchAvengerServiceService.delteLocalStrorageHero(position)
     }
   }
+
 
 }
